@@ -33,11 +33,8 @@ public class TraineeService {
     }
 
     public void update(int id, Trainee trainee){
-        trainees.stream().filter(std->std.getId().equals(id)).forEach(std->{
-            std.setId(trainee.getId());
-            std.setAge(trainee.getAge());
-            std.setName(trainee.getName());
-        });
+        Trainee tr1=trainees.stream().filter(std->std.getId().equals(id)).findFirst().orElse(null);
+        if(tr1!=null) Collections.replaceAll(trainees,tr1,trainee);
     }
 
     public void patch(int id, Trainee trainee){
