@@ -16,18 +16,11 @@ public class TraineeController {
         this.traineeService = traineeService;
     }
 
-    /**
-     * @return all student in database
-     */
     @GetMapping
     public List<Trainee> findAllStudents(){
         return traineeService.findAllStudents();
     }
 
-    /**
-     * @param id
-     * @return Get user by ID
-     */
     @GetMapping("{id}")
     public Trainee findById(@PathVariable Integer id){
         Optional<Trainee> student= traineeService.findById(id);

@@ -10,8 +10,8 @@ import java.util.Map;
 @RequestMapping("/index")
 public class HelloWorld {
 
-//    Request Parameter ->>>>
-    @GetMapping("index")
+    //Request Parameter ->>>>
+    @GetMapping
     public String index(Model model, @RequestParam(required = false) String name){
         model.addAttribute("name", (name!=null)?name:"No Name");
         return "index";
@@ -34,7 +34,6 @@ public class HelloWorld {
         model.addAttribute("name", param.getName()+" hehehe");
         return "index";
     }
-
 
     class Payload{
         private int id;
